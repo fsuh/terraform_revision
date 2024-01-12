@@ -32,8 +32,15 @@ resource "aws_s3_bucket_versioning" "fsuh_s3_versioning"{
 }
 
 
-// terraform plan -out iam.tfplan
-resource "aws_iam_user" "fsuh_iam_user"  {
-    name = "fsuh_Bzion"
+
+
+# resource "aws_iam_user" "fsuh_iam_user"  {
+#     name = "fsuh_Bzion"
+  
+# }
+
+resource "aws_iam_user" "fsuh_iam_user" {
+    name = "${var.iam_user_name_prefix}_${count.index}"
+    count = 2
   
 }
