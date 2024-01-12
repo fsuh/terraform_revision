@@ -39,8 +39,19 @@ resource "aws_s3_bucket_versioning" "fsuh_s3_versioning"{
   
 # }
 
+# resource "aws_iam_user" "fsuh_iam_user" {
+#     name = "${var.iam_user_name_prefix}_${count.index}"
+#     count = 2
+  
+# }
+
+# resource "aws_iam_user" "fsuh_iam_user" {
+#   count = length(var.names)
+#   name =var.names[count.index]
+  
+# }
 resource "aws_iam_user" "fsuh_iam_user" {
-    name = "${var.iam_user_name_prefix}_${count.index}"
-    count = 2
+  for_each = toset(var.names)
+  name = each.value
   
 }

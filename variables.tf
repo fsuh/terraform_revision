@@ -4,3 +4,7 @@ variable "iam_user_name_prefix" {
     default = "fsuh_Bzion"
   
 }
+variable "names" {
+    default = ["Fsuh","Bzion", "Escarlett", "Aemilia"]
+  
+}
